@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlicIA-GPT – Accueil</title>
+    <style>
+      :root {
+        --bg: #0a0a14;
+        --bg2: #1a1a2e;
+        --indigo: #6366f1;
+        --mint: #00ffb3;
+        --txt: #f4f4fb;
+        --mut: #a9abc4;
+        --card-bg: #0f172a;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%);
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: var(--txt);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* --- NAVBAR --- */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 2rem;
+        background: rgba(15, 23, 42, 0.85);
+        border-bottom: 2px solid var(--indigo);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .navbar .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--txt);
+        text-decoration: none;
+      }
+
+      .navbar .brand span {
+        color: var(--mint);
+      }
+
+      .navbar nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .navbar nav a {
+        color: var(--mut);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        transition: all 0.25s ease;
+      }
+
+      .navbar nav a:hover {
+        color: var(--mint);
+        background: rgba(99, 102, 241, 0.2);
+      }
+
+      /* --- HERO --- */
+      .hero {
+        text-align: center;
+        padding: 3rem 1.5rem 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+      }
+
+      .hero h1 span {
+        background: linear-gradient(90deg, var(--indigo), var(--mint));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero p {
+        font-size: 1.15rem;
+        color: var(--mut);
+        max-width: 650px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      /* --- GRILLE DE CARTES --- */
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.8rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+        width: 100%;
+      }
+
+      .card {
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        border: 2px solid var(--indigo);
+        border-radius: 14px;
+        padding: 1.8rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--indigo), var(--mint));
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
+      }
+
+      .card .icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .card h2 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+        color: var(--txt);
+      }
+
+      .card p {
+        color: var(--mut);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        flex-grow: 1;
+        margin-bottom: 1.2rem;
+      }
+
+      .card .btn {
+        display: inline-block;
+        text-align: center;
+        padding: 0.7rem 1rem;
+        background: linear-gradient(90deg, var(--indigo), var(--mint));
+        color: #0a0a14;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: opacity 0.25s ease;
+      }
+
+      .card .btn:hover {
+        opacity: 0.85;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        margin-top: auto;
+        text-align: center;
+        padding: 1.5rem;
+        color: var(--mut);
+        font-size: 0.85rem;
+        border-top: 1px solid rgba(99, 102, 241, 0.3);
+      }
+
+      footer a {
+        color: var(--mint);
+        text-decoration: none;
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 640px) {
+        .navbar {
+          flex-direction: column;
+          gap: 0.8rem;
+          padding: 1rem;
+        }
+        .navbar nav {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <a href="index.html" class="brand">AlicIA<span>-GPT</span></a>
+      <nav>
+        <a href="carte-visite.html">Carte de visite</a>
+        <a href="flyer-pros.html">Flyer Pros</a>
+        <a href="flyer-seniors.html">Flyer Seniors</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Bienvenue sur <span>AlicIA-GPT</span></h1>
+      <p>
+        Retrouvez ici tous nos supports de communication. Cliquez sur une carte
+        pour ouvrir le document correspondant (format imprimable A4 / A5).
+      </p>
+    </section>
+
+    <!-- GRILLE DES FICHIERS -->
+    <main class="cards-grid">
+      <!-- Carte de visite -->
+      <div class="card">
+        <div class="icon">💳</div>
+        <h2>Carte de visite</h2>
+        <p>
+          Format recto/verso (85 × 55 mm). Présente votre identité, vos services
+          et un QR code pour prendre rendez-vous.
+        </p>
+        <a href="carte-visite.html" class="btn">Ouvrir la carte</a>
+      </div>
+
+      <!-- Flyer Pros -->
+      <div class="card">
+        <div class="icon">🚀</div>
+        <h2>Flyer Professionnels</h2>
+        <p>
+          Flyer A5 (2 par page A4) orienté entreprises : audit, automatisation,
+          marketing, agents IA et formation.
+        </p>
+        <a href="flyer-pros.html" class="btn">Ouvrir le flyer</a>
+      </div>
+
+      <!-- Flyer Seniors -->
+      <div class="card">
+        <div class="icon">🧑‍💻</div>
+        <h2>Flyer Seniors</h2>
+        <p>
+          Flyer A5 (2 par page A4) pour l'accompagnement numérique des seniors :
+          initiation, démarches, sécurité et dépannage.
+        </p>
+        <a href="flyer-seniors.html" class="btn">Ouvrir le flyer</a>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      © 2026 AlicIA-GPT —
+      <a href="https://www.alicia-gpt.com">www.alicia-gpt.com</a>
+    </footer>
+  </body>
+</html>

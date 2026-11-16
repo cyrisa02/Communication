@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Carte de visite AlicIA-GPT – v3</title>
+<style>
+@page { size: 210mm 297mm; margin: 0; }
+:root { --bg:#0a0a14; --bg2:#1a1a2e; --indigo:#6366f1; --mint:#00ffb3; --txt:#f4f4fb; --mut:#a9abc4; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:#12121f; font-family:"Segoe UI",system-ui,-apple-system,sans-serif; -webkit-print-color-adjust:exact; print-color-adjust:exact; padding:20px; color:var(--txt); }
+.wrap { display:flex; flex-direction:column; align-items:center; gap:8mm; }
+.card { width:85mm; height:55mm; border-radius:3mm; overflow:hidden; position:relative; padding:4.5mm 5mm; background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%); border:.3mm solid var(--indigo); box-shadow:0 4px 15px rgba(99,102,241,.3); display:flex; flex-direction:column; page-break-inside:avoid; }
+.card::before { content:""; position:absolute; inset:0 0 auto 0; height:1mm; background:linear-gradient(90deg,var(--indigo),var(--mint)); }
+.head { display:flex; align-items:center; gap:2.5mm; margin-top:1mm; }
+.logo { width:11mm; height:11mm; border-radius:50%; background:#fff; padding:.8mm; object-fit:contain; flex-shrink:0; }
+.logo-fb { width:11mm; height:11mm; border-radius:50%; background:linear-gradient(135deg,var(--indigo),var(--mint)); display:none; align-items:center; justify-content:center; font-weight:800; font-size:14pt; color:#0a0a14; flex-shrink:0; }
+.brand { font-size:13pt; font-weight:800; line-height:1; letter-spacing:-.2pt; }
+.tag { font-size:6.2pt; color:var(--mint); margin-top:1mm; }
+.hook { margin-top:3.2mm; font-size:10.5pt; font-weight:800; line-height:1.15; }
+.hook span { color:var(--mint); }
+.who { margin-top:auto; }
+.name { font-size:10pt; font-weight:700; }
+.role { font-size:7pt; color:#9ea1ff; font-weight:600; margin-top:.3mm; }
+.proof { font-size:6.3pt; color:var(--mut); margin-top:.6mm; }
+.contacts { margin-top:2mm; padding-top:1.6mm; border-top:.2mm solid rgba(99,102,241,.35); display:grid; grid-template-columns:1fr 1fr; gap:.9mm 3mm; font-size:6.8pt; color:#d6d7e8; }
+.contacts b { color:#fff; font-weight:600; }
+.ic { color:var(--mint); margin-right:1mm; }
+.v-title { font-size:9pt; font-weight:800; margin-top:1mm; }
+.v-sub { font-size:6.2pt; color:var(--mut); margin-bottom:2.2mm; }
+.svc { display:flex; gap:1.8mm; margin-bottom:1.9mm; }
+.svc i { color:var(--mint); font-style:normal; font-size:8pt; line-height:1; margin-top:.3mm; }
+.svc h4 { font-size:7.6pt; font-weight:700; }
+.svc p { font-size:6.1pt; color:var(--mut); line-height:1.25; max-width:52mm; }
+.cta { position:absolute; right:4.5mm; bottom:4.5mm; width:19mm; text-align:center; }
+.qr { width:17mm; height:17mm; border-radius:1.2mm; background:#fff; display:block; margin:0 auto; object-fit:contain; }
+.cta small { display:block; font-size:5.6pt; font-weight:700; color:var(--mint); margin-top:1mm; line-height:1.15; }
+.method { position:absolute; left:5mm; bottom:3.6mm; font-size:5.8pt; color:var(--mut); width:55mm; }
+.method b { color:#9ea1ff; }
+.cut { width:85mm; border-top:.2mm dashed rgba(99,102,241,.5); }
+@media print { body { background:#fff; padding:0; } .wrap { gap:6mm; padding-top:10mm; } .card { box-shadow:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- RECTO -->
+<div class="card">
+  <div class="head">
+    <img class="logo" src="logo.jpeg" alt="Logo AlicIA-GPT" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+    <div class="logo-fb">A</div>
+    <div>
+      <div class="brand">AlicIA-GPT</div>
+      <div class="tag">L'IA au service de votre entreprise</div>
+    </div>
+  </div>
+  <div class="hook">Gagnez du temps.<br><span>Automatisez vos processus.</span></div>
+  <div class="who">
+    <div class="name">Cyril Gourdon</div>
+    <div class="role">Consultant IA &amp; Formation</div>
+    <div class="proof">Ingénieur &middot; +25 ans d'expérience industrielle &middot; Hauts-de-France</div>
+  </div>
+  <div class="contacts">
+    <div><span class="ic">&#9742;</span><b>06 15 60 33 44</b></div>
+    <div><span class="ic">&#9993;</span>contact@alicia-gpt.com</div>
+    <div><span class="ic">&#9679;</span><b>www.alicia-gpt.com</b></div>
+    <div><span class="ic">in</span>LinkedIn : www.linkedin.com/in/cyril-gourdon</div>
+  </div>
+</div>
+
+<div class="cut"></div>
+
+<!-- VERSO -->
+<div class="card">
+  <div class="v-title">Ce que je fais pour vous</div>
+  <div class="v-sub">Du diagnostic à l'équipe autonome.</div>
+  <div class="svc"><i>&#10003;</i><div><h4>Formation IA</h4><p>Vos équipes utilisent l'IA seules, dès les premières semaines.</p></div></div>
+  <div class="svc"><i>&#10003;</i><div><h4>Conseil &amp; Audit</h4><p>Je repère où vous perdez du temps et vous remets une feuille de route claire.</p></div></div>
+  <div class="svc"><i>&#10003;</i><div><h4>Automatisation &amp; agents IA</h4><p>Tâches répétitives, relances, support commercial : l'IA s'en charge.</p></div></div>
+  <div class="method"><b>Méthode :</b> Audit &middot; Stratégie &middot; Intégration &middot; Autonomie</div>
+  
+  <!-- CTA avec QR Code corrigé -->
+  <div class="cta">
+    <a href="https://www.alicia-gpt.com" target="_blank" style="text-decoration:none;">
+      <!-- Utilisation d'une API pour générer le QR code proprement -->
+      <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.alicia-gpt.com" alt="QR Code AlicIA-GPT" />
+      <small>Scannez pour réserver un échange</small>
+    </a>
+  </div>
+
+</div>
+
+</div>
+</body>
+</html>
